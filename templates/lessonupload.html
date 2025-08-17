@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <form action="#" method="POST">
+        <p>Lesson Name:</p>
+        <input type="text" name="name">
+        <p>Lesson Video:</p>
+        <input type="text" name="video">
+        <p>Video</p>
+        <p>Lesson Type (T for text and V for video):</p>
+        <input type="text" name="type">
+        <p>Lesson Contents (for text lesson only)</p>
+        <textarea name="content"></textarea>
+        <br>
+        <input type="submit" value="SUBMIT">
+    </form>
+{% endblock %}

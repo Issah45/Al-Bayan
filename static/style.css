@@ -1,0 +1,97 @@
+
+* {
+    font-family: Verdana, sans-serif;
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(11, 8, 17);
+    overflow-x: hidden;
+}
+
+.nav {
+    background: rgb(4, 4, 7);
+    padding: 10px;
+    height: 35px;
+}
+
+.nav ul {
+    list-style-type: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    display: inline;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    margin: 15px;
+    padding: 5px;
+}
+
+.nav ul li a:hover {
+    color: rgb(113, 105, 131);
+}
+
+.nav-left {
+    float: left;
+}
+
+.nav-right {
+    float: right;
+}
+
+
+
+
+
+.content {
+    margin: 0;
+    text-align: center;
+}
+
+.lessons {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.vidlesson {
+    width: 350px;
+    height: 250px;
+    background: rgb(38, 35, 53);
+    border-radius: 10px;
+}
+
+.vidless {
+    font-family: monospace;
+}
+
+.lessoncontainer {
+    background: rgb(31, 28, 43);
+    padding: 50px;
+}
+
+.textlesson {
+    width: 200px;
+}
+
+
+.title {
+    color: black;
+    font-size: 48px;
+    background: url("/static/images/bg.avif");
+    padding: 140px;
+}
+
+.title h1, .title h2 {
+    font-family: georgia;
+}

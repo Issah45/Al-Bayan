@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>{% block title %}Document{% endblock %}</title>
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-left">
+            <li><a href="/">Home</a></li>
+            <li><a href="/lessons">Lessons</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav-right">
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Hello, {{session.uname}}</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
