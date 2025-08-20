@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
-    <h1>LESSONS</h1>
-
     <div class="lessoncontainer">
-        <h2 class="vidless">Video Lessons</h2>
+        <h1 class="vidless">Video Lessons</h1>
         <div class="lessons">
-            {% for lesson in lessons %}
+            {% if session.get("uname") == "None" or session.get("uname") == None %}
+                <h1 class="vidless">Sign in to access lessons!</h1>
+            {% else %}
+                {% for lesson in lessons %}
                 <div class="vidlesson">
                     <h3>{{lesson[0]}}</h3>
                     <video src="static/videos/{{lesson[1]}}" width="300" controls></video>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            {% endif %}
         </div>
+        <a href="/f">Not found what you're looking for?</a>
     </div>
 
+    <!--
     <h2>TEXT LESSONS</h2>
     {% for lesson in textlessons %}
         <div class="textlesson">
@@ -22,6 +26,9 @@
             <p>{{lesson[1]}}</p>
         </div>
     {% endfor %}
+    <br>-->
+    {% if session.get("uname") == "ADMIN" %}
     <br>
-    <a href="/lessonupload">Upload A Lesson</a>
+        <a href="/lessonupload">New Lesson [ADMIN ONLY]</a>
+    {% endif %}
 {% endblock %}

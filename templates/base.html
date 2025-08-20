@@ -14,9 +14,16 @@
             <li><a href="#">Contact</a></li>
         </ul>
         <ul class="nav-right">
-            <li><a href="/signup">Sign Up</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Hello, {{session.uname}}</a></li>
+            {% if session.get("uname") == "None" or session.get("uname") == None %}
+                <li><a href="/signup">Create Account</a></li>
+                <li><a href="/login">Login</a></li>
+            {% endif %}
+
+            {% if session.get("uname") != "None" and session.get("uname") != None %}
+                <li><a href="/community">Community</a></li>
+                <li><a href="#">{{session.get("uname")}}</a></li>
+                <li><a href="/signout">Sign Out</a></li>
+            {% endif %}
         </ul>
     </nav>
     <div class="content">
