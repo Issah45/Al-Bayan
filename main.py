@@ -62,4 +62,5 @@ def signup():
 def user(username, password):
     return render_template("user.html")
 
-app.run(debug=True, host='192.168.0.11', port=2763)
+
+app.run()
