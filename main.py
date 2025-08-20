@@ -63,4 +63,5 @@ def user(username, password):
     return render_template("user.html")
 
 
-app.run()
+app.run(host="0.0.0.0")
+
