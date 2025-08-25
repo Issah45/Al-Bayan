@@ -75,7 +75,7 @@ body {
 .vidlesson {
     width: 350px;
     height: 250px;
-    background: rgb(38, 35, 53);
+    background: linear-gradient(rgb(38, 35, 53), rgb(25, 23, 34));
     border-radius: 10px;
 }
 
