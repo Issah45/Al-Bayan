@@ -111,3 +111,18 @@ input {
     padding: 7px;
     outline: none;
 }
+
+
+
+.ad {
+    font-size: 20px;
+    max-width: 60vw;
+    font-family :sans-serif;
+    text-align: center;
+    margin: auto;
+}
+
+.vidad {
+    max-width: 60vw;
+    border-radius: 15px;
+}
