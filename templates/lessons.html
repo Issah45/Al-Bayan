@@ -11,11 +11,13 @@
                 <div class="vidlesson">
                     <h3>{{lesson[0]}}</h3>
                     <video src="static/videos/{{lesson[1]}}" width="300" controls></video>
+                    <br>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcTOPpvTgxg5KPEOdYYTXFfk6atBIhRw2SFpK-R8EqnFTi5A/viewform?usp=header">Quiz</a>
                 </div>
                 {% endfor %}
             {% endif %}
         </div>
-        <a href="/f">Not found what you're looking for?</a>
+        <a href="/f">Want Online Lessons?</a>
     </div>
 
     <!--
@@ -27,6 +29,7 @@
         </div>
     {% endfor %}
     <br>-->
+    
     {% if session.get("uname") == "ADMIN" %}
     <br>
         <a href="/lessonupload">New Lesson [ADMIN ONLY]</a>
