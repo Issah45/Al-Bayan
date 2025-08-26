@@ -91,4 +91,4 @@ def login():
 def user(username, password):
     return render_template("user.html")
 
-app.run(debug=True, host="0.0.0.0")
+app.run(host="0.0.0.0")
