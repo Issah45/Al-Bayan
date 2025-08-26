@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="lessoncontainer">
+        <h1 class="vidless">Community</h1>
+        <div class="lessons">
+            {% for post in posts %}
+            <div class="vidlesson">
+                <h3>{{post[0]}}</h3>
+                <p>{{post[1]}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <br>
+        <a href="/communityupload">New Post</a>
+{% endblock %}

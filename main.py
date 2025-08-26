@@ -15,9 +15,31 @@ def lessons():
     print(rowst)
     return render_template("lessons.html", lessons=rows, textlessons=rowst)
 
-@app.route("/community")
+@app.route("/community", methods=["GET", "POST"])
 def community():
-    return render_template("community.html")
+    con = sqlite3.connect("community.db")
+    cur = con.cursor()
+
+    cur.execute("SELECT name, contents FROM posts")
+    rows = cur.fetchall()
+
+    print(rows)
+    return render_template("community.html", posts=rows)
+
+@app.route("/communityupload", methods=["GET", "POST"])
+def communityupload():
+    if request.method == "POST":
+        con = sqlite3.connect("community.db")
+        cur = con.cursor()
+        title = request.form["title"]
+        content = request.form["content"]
+        date = "0/0/0000"
+
+        cur.execute(f"INSERT INTO posts(name, contents, date, comments) values('{title}', '{content}', '{date}', '{[]}')")
+        con.commit()
+
+        return redirect(url_for("community"))
+    return render_template("communityupload.html")
 
 @app.route("/lessonupload", methods=["GET", "POST"])
 def lessonupload():
@@ -39,7 +61,7 @@ def lessonupload():
         return redirect(url_for("lessons"))
     return render_template("lessonupload.html")
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def home():
     return render_template("home.html")
 
