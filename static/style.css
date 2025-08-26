@@ -135,6 +135,19 @@ input {
 
 @media only screen and (max-width: 600px) {
     .nav ul li a {
-        font-size: 10px;
+        font-size: 8px;
     }
+}
+
+
+.posts {
+
+}
+
+.communitypost {
+    background: linear-gradient(rgb(38, 35, 53), rgb(49, 46, 66));
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    text-align: left;
 }
