@@ -151,3 +151,9 @@ input {
     border-radius: 15px;
     text-align: left;
 }
+
+textarea {
+    color: black;
+    border: none;
+    width: 200px;
+}

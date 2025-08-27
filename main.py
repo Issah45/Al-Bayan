@@ -113,4 +113,8 @@ def login():
 def user(username, password):
     return render_template("user.html")
 
+@app.route("/specialform")
+def specialform():
+    return render_template("specialform.html")
+
 app.run(host="0.0.0.0")
