@@ -156,4 +156,5 @@ textarea {
     color: black;
     border: none;
     width: 200px;
+    outline: none;
 }
