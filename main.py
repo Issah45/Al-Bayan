@@ -1,8 +1,12 @@
 from flask import Flask, redirect, url_for, render_template, request, session
-import sqlite3, os, smtplib, ssl
+import sqlite3, os
 
 app = Flask(__name__)
 app.secret_key = "K1YS1R"
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 @app.route("/lessons")
 def lessons():
