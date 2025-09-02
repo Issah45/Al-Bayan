@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, render_template, request, session
-import sqlite3, os
+import sqlite3, os, mail
 
 app = Flask(__name__)
 app.secret_key = "K1YS1R"
@@ -107,8 +107,8 @@ def login():
         for account in c:
             if account[1] == username and account[2] == password:
                 if account[3] == 0:
-                    print("uncofmrofinu")
-                    return redirect("https://formsubmit.co/abeebissa@gmail.com")
+                    mail.send_mail(account[1])
+                    return redirect(url_for("home"))
                 else:
                     exists = True
         
