@@ -71,23 +71,17 @@ def home():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    # if request.method == "POST":
-    #     con = sqlite3.connect("accounts.db")
-    #     cur = con.cursor()
-    #     username = request.form["username"]
-    #     password = request.form["password"]
+    if request.method == "POST":
+        con = sqlite3.connect("accounts.db")
+        cur = con.cursor()
+        username = request.form["username"]
+        password = request.form["password"]
 
-    #     #cur.execute(f"INSERT INTO accounts(username, password) values('{username}', '{password}')")
+        cur.execute(f"INSERT INTO accounts(username, password, approved) values('{username}', '{password}', 0)")
 
-    #     message = f"""{username} is trying to sign in!\nDetails:\nusername: {username}\npassword: {password}"""
+        con.commit()
 
-    #     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as server:
-    #         server.login("issuseless4@gmail.com", "Habisinev45")
-    #         server.sendmail("issuseless4@gmail.com", "abeebissa@yahoo.com", message)
-
-        #con.commit()
-
-        # return render_template("login.html", username=username, password=password)
+        return render_template("login.html", username=username, password=password)
     return render_template("signup.html")
 
 @app.route("/signout")
@@ -108,10 +102,15 @@ def login():
         cur.execute(f"SELECT * from accounts")
         c = cur.fetchall()
 
-        #0: id 1: name 2: password
+
+        #0: id 1: name 2: password 3: approved
         for account in c:
             if account[1] == username and account[2] == password:
-                exists = True
+                if account[3] == 0:
+                    print("uncofmrofinu")
+                    return redirect("https://formsubmit.co/abeebissa@gmail.com")
+                else:
+                    exists = True
         
         if exists:
             session["uname"] = username
