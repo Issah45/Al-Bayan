@@ -12,11 +12,11 @@ def dashboard():
 def lessons():
     con = sqlite3.connect("lessons.db")
     cur = con.cursor()
-    cur.execute("SELECT lessonname, video FROM lessons")
+    cur.execute("SELECT lessonname, video, pdf FROM lessons")
     rows = cur.fetchall()
     cur.execute("SELECT lessonname, Contents FROM textlessons")
     rowst = cur.fetchall()
-    print(rowst)
+    print(rows)
     return render_template("lessons.html", lessons=rows, textlessons=rowst)
 
 @app.route("/community", methods=["GET", "POST"])
