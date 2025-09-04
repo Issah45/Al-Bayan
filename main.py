@@ -109,14 +109,20 @@ def login():
                 if account[3] == 0:
                     mail.send_mail(account[1])
                     return redirect(url_for("home"))
+                    exists = True
                 else:
                     exists = True
         
+        print(str(exists))
+
         if exists:
             session["uname"] = username
-
+        
+        if not exists:
+            return render_template("login.html", notexist=True)
+        
         return render_template("home.html", username=username, password=password)
-    return render_template("login.html")
+    return render_template("login.html", notexist=False)
 
 @app.route("/user")
 def user(username, password):

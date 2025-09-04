@@ -5,11 +5,30 @@
         <p>Username:</p>
         <input type="text" name="username" required>
         <p>Password:</p>
-        <input type="password" name="password" required>
+        <input type="password" id="pword" name="password" required>
         <p>Confirm Password:</p>
-        <input type="password" name="confirmpassword" required>
+        <input type="password" id="pword-confirm" name="confirmpassword" required>
+        <br>
+        <br>
+        <input type="checkbox" onclick="var p=document.getElementById('pword'); var q=document.getElementById('pword-confirm'); p.type=(p.type=='password'?'text':'password'); q.type=(q.type=='password'?'text':'password')">Show Password
         <br>
         <br>
         <input type="submit" value="SUBMIT">
     </form>
+
+    <script>
+        function showpword() {
+            var passwordField = document.getElementById("pword");
+            var confirmPasswordField = document.getElementById("pword-confirm");
+            
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                confirmPasswordField.type = "text";
+            } else {
+                passwordField.type = "password";
+                confirmPasswordField.type = "password";
+            }
+        }
+    </script>
 {% endblock %}
+

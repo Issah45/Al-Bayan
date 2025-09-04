@@ -5,8 +5,15 @@
         <p>Username:</p>
         <input type="text" name="username">
         <p>Password:</p>
-        <input type="password" name="password">
+        <input type="password" id="pword" name="password">
+        <br>
+        <br>
+        <input type="checkbox" onclick="var p=document.getElementById('pword'); p.type=(p.type=='password'?'text':'password');">Show Password
+        <br>
         <br>
         <input type="submit" value="SUBMIT">
+        {% if notexist == true %}
+            <p>That account doesn't exist!</p>
+        {% endif %}
     </form>
 {% endblock %}
