@@ -77,11 +77,10 @@ def signup():
         username = request.form["username"]
         password = request.form["password"]
 
-        cur.execute(f"INSERT INTO accounts(username, password, approved) values('{username}', '{password}', 0)")
-
+        cur.execute("INSERT INTO accounts(username, password, approved) VALUES (?, ?, ?)", (username, password, 0))
         con.commit()
 
-        return render_template("login.html", username=username, password=password)
+        return redirect(url_for("login"))
     return render_template("signup.html")
 
 @app.route("/signout")
@@ -108,11 +107,11 @@ def login():
             if account[1] == username and account[2] == password:
                 if account[3] == 0:
                     mail.send_mail(account[1])
-                    return redirect(url_for("home"))
                     exists = True
                 else:
                     exists = True
         
+        print(c)
         print(str(exists))
 
         if exists:
